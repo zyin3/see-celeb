@@ -69,8 +69,17 @@ def classify_url():
   try:
     bytes = urllib2.urlopen(imageurl).read()
     string_buffer = StringIO.StringIO(bytes)
-    image = exifutil.open_oriented_im(string_buffer)
-
+    processed_file = exifutil.crop_and_align(string_buffer)
+    image = exifutil.open_oriented_im(processed_file)
+    app.logger.info('Image: %s', imageurl)
+    names, probs, time_cost, accuracy = app.clf.classify_image(
+        open(os.path.join(processed_file), 'rb').read())
+    return flask.render_template(
+      'index.html',
+      has_result=True,
+      result=[True, zip(names, probs),
+              '%.3f' % time_cost],
+      imagesrc=embed_image_html(image))
   except Exception as err:
     # For any exception we encounter in reading the image, we will just
     # not continue.
@@ -80,14 +89,6 @@ def classify_url():
         has_result=True,
         result=(False, 'Cannot open image from URL.'))
 
-  app.logger.info('Image: %s', imageurl)
-  names, probs, time_cost, accuracy = app.clf.classify_image(bytes)
-  return flask.render_template(
-      'index.html',
-      has_result=True,
-      result=[True, zip(names, probs),
-              '%.3f' % time_cost],
-      imagesrc=embed_image_html(image))
 
 
 @app.route('/classify_upload', methods=['POST'])
@@ -209,29 +210,6 @@ class ImagenetClassifier(object):
     self._input_operation = self._graph.get_operation_by_name(input_name);
     self._output_operation = self._graph.get_operation_by_name(output_name);
 
-    # with tf.Graph().as_default(), tf.device('cpu:0'):
-    #   self.sess = tf.Session()
-    #   self.image_tensor = tf.placeholder(tf.float32, (299, 299, 3))
-
-    #   input_name = "import/" + input_layer
-    #   output_name = "import/" + output_layer
-    #   input_operation = self._graph.get_operation_by_name(input_name);
-    #   output_operation = self._graph.get_operation_by_name(output_name);
-
-    #   image_tensor = _read_tensor_from_image_file(self.image_buffer)
-    #   # Run inference.
-    #   logits, predictions = inception_model.inference(images, NUM_CLASSES + 1)
-    #   with tf.Session(graph=graph) as sess:
-    #     with htf.device('/cpu:0'):
-    #       results = sess.run(output_operation.outputs[0],
-    #                          {input_operation.outputs[0]: t})
-
-    #   results = np.squeeze(results)
-    #   top_k = results.argsort()[-5:][::-1]
-
-    #   self.label_names = ['none']
-    #   for i in top_k:
-    #     self.label_names.append(self._label[i])
 
   def eval_image(self, image, height, width, scope=None):
     """Prepare one image for evaluation.
