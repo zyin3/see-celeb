@@ -38,6 +38,9 @@ from scipy import interpolate
 from tensorflow.python.training import training
 import random
 import re
+import sys
+import fnmatch
+import operator
 from tensorflow.python.platform import gfile
 
 def triplet_loss(anchor, positive, negative, alpha):
@@ -325,13 +328,20 @@ class ImageClass():
   def __len__(self):
     return len(self.image_paths)
 
-def get_dataset(paths):
+
+def get_dataset(paths, top_k=sys.maxint):
   dataset = []
   for path in paths.split(':'):
     path_exp = os.path.expanduser(path)
-    classes = os.listdir(path_exp)
-    classes.sort()
-    nrof_classes = len(classes)
+    dirs_and_img_count = []
+    for sub_dir in os.listdir(path_exp):
+      sub_dir_path_exp = os.path.join(path_exp, sub_dir)
+      img_count = len(fnmatch.filter(os.listdir(sub_dir_path_exp), '*.jpg'))
+      dirs_and_img_count.append((sub_dir, img_count))
+
+    dirs_and_img_count.sort(key=operator.itemgetter(1), reverse=True)
+    classes = [dir_and_count[0] for dir_and_count in dirs_and_img_count]
+    nrof_classes = min(top_k, len(classes))
     for i in range(nrof_classes):
       class_name = classes[i]
       facedir = os.path.join(path_exp, class_name)
