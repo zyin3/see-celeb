@@ -2,11 +2,10 @@ import base64
 import struct
 import os
 
-
 def readline(line):
-  MID, EntityNameString, _, FaceID, FaceRectangle, FaceData = line.split("\t")
+  MID, _, _, _, FaceID, FaceRectangle, FaceData = line.split("\t")
   rect = struct.unpack("ffff", base64.b64decode(FaceRectangle))
-  return MID, EntityNameString, FaceID, rect, base64.b64decode(FaceData)
+  return MID, FaceID, rect, base64.b64decode(FaceData)
 
 
 def writeImage(filename, data):
@@ -18,7 +17,7 @@ def unpack(filename, target="img"):
   i = 0
   with open(filename, "r") as f:
     for line in f:
-      MID, _, FaceID, FaceRectangle, FaceData = readline(line)
+      MID, FaceID, FaceRectangle, FaceData = readline(line)
       img_dir = os.path.join(target, MID)
       if not os.path.exists(img_dir):
         os.mkdir(img_dir)
@@ -30,5 +29,5 @@ def unpack(filename, target="img"):
   print("all finished")
 
 
-filename = "/usr/local/google/home/zyin/Downloads/MsCelebV1-Faces-Cropped-DevSet1.tsv"
-unpack(filename)
+filename = "/usr/local/google/home/zyin/Downloads/FaceImageCroppedWithOutAlignment.tsv"
+unpack(filename, '/usr/local/google/home/zyin/datasets/msceleb_cropped')
