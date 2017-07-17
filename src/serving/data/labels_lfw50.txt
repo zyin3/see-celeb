@@ -1,50 +1,50 @@
-0:Alejandro_Toledo
-1:Alvaro_Uribe
-2:Andre_Agassi
-3:Ariel_Sharon
-4:Arnold_Schwarzenegger
-5:Atal_Bihari_Vajpayee
-6:Bill_Clinton
-7:Colin_Powell
-8:David_Beckham
-9:Donald_Rumsfeld
-10:George_W_Bush
-11:Gerhard_Schroeder
-12:Gloria_Macapagal_Arroyo
-13:Gray_Davis
-14:Guillermo_Coria
-15:Hans_Blix
-16:Hugo_Chavez
-17:Jack_Straw
-18:Jacques_Chirac
-19:Jean_Chretien
-20:Jennifer_Capriati
-21:Jeremy_Greenstock
-22:John_Ashcroft
-23:John_Negroponte
-24:Jose_Maria_Aznar
-25:Juan_Carlos_Ferrero
-26:Junichiro_Koizumi
-27:Kofi_Annan
-28:Laura_Bush
-29:Lleyton_Hewitt
-30:Luiz_Inacio_Lula_da_Silva
-31:Mahmoud_Abbas
-32:Megawati_Sukarnoputri
-33:Naomi_Watts
-34:Nestor_Kirchner
-35:Pete_Sampras
-36:Recep_Tayyip_Erdogan
-37:Ricardo_Lagos
-38:Roh_Moo-hyun
-39:Rudolph_Giuliani
-40:Saddam_Hussein
-41:Serena_Williams
-42:Silvio_Berlusconi
-43:Tiger_Woods
-44:Tom_Daschle
-45:Tom_Ridge
-46:Tony_Blair
-47:Vicente_Fox
-48:Vladimir_Putin
-49:Winona_Ryder
+Alejandro Toledo
+Alvaro Uribe
+Andre Agassi
+Ariel Sharon
+Arnold Schwarzenegger
+Atal Bihari Vajpayee
+Bill Clinton
+Colin Powell
+David Beckham
+Donald Rumsfeld
+George W Bush
+Gerhard Schroeder
+Gloria Macapagal Arroyo
+Gray Davis
+Guillermo Coria
+Hans Blix
+Hugo Chavez
+Jack Straw
+Jacques Chirac
+Jean Chretien
+Jennifer Capriati
+Jeremy Greenstock
+John Ashcroft
+John Negroponte
+Jose Maria Aznar
+Juan Carlos Ferrero
+Junichiro Koizumi
+Kofi Annan
+Laura Bush
+Lleyton Hewitt
+Luiz Inacio Lula da Silva
+Mahmoud Abbas
+Megawati Sukarnoputri
+Naomi Watts
+Nestor Kirchner
+Pete Sampras
+Recep Tayyip Erdogan
+Ricardo Lagos
+Roh Moo-hyun
+Rudolph Giuliani
+Saddam Hussein
+Serena Williams
+Silvio Berlusconi
+Tiger Woods
+Tom Daschle
+Tom Ridge
+Tony Blair
+Vicente Fox
+Vladimir Putin
+Winona Ryder
