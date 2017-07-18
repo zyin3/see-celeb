@@ -143,8 +143,8 @@ def allowed_file(filename):
 
 class ImagenetClassifier(object):
   default_args = {
-      'model_def_file': ('/tmp/frozen_inception_v3_lfw50.pb'),
-      'class_labels_file': (os.path.join(REPO_DIRNAME, 'labels_lfw50.txt')),
+      'model_def_file': ('/tmp/frozen_inception_v3_lfw.pb'),
+      'class_labels_file': (os.path.join(REPO_DIRNAME, 'labels_lfw.txt')),
   }
   for key, val in default_args.iteritems():
     if not os.path.exists(val):
