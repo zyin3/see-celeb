@@ -39,31 +39,28 @@ python download_and_convert_data.py \
 # sleep 60
 
 # Fine-tune only the new layers for 1000 steps.
-# python train_image_classifier.py \
-#   --train_dir=${TRAIN_DIR} \
-#   --dataset_name=lfw50 \
-#   --dataset_split_name=train \
-#   --dataset_dir=${DATASET_DIR} \
-#   --model_name=inception_v3 \
-#   --checkpoint_path=${PRETRAINED_CHECKPOINT_DIR}/inception_v3.ckpt \
-#   --checkpoint_exclude_scopes=InceptionV3/Logits,InceptionV3/AuxLogits \
-#   --trainable_scopes=InceptionV3/Logits,InceptionV3/AuxLogits \
-#   --max_number_of_steps=150000 \
-#   --batch_size=32 \
-#   --learning_rate=0.01 \
-#   --learning_rate_decay_type=fixed \
-#   --save_interval_secs=60 \
-#   --save_summaries_secs=60 \
-#   --log_every_n_steps=20 \
-#   --optimizer=rmsprop \
-#   --weight_decay=0.00004
-  # --num_clones=2 \
-  # --worker_replicas=1 \
-  # --clone_on_cpu \
+python train_image_classifier.py \
+  --train_dir=${TRAIN_DIR} \
+  --dataset_name=lfw50 \
+  --dataset_split_name=train \
+  --dataset_dir=${DATASET_DIR} \
+  --model_name=inception_v3 \
+  --checkpoint_path=${PRETRAINED_CHECKPOINT_DIR}/inception_v3.ckpt \
+  --checkpoint_exclude_scopes=InceptionV3/Logits,InceptionV3/AuxLogits \
+  --trainable_scopes=InceptionV3/Logits,InceptionV3/AuxLogits \
+  --max_number_of_steps=150000 \
+  --batch_size=32 \
+  --learning_rate=0.01 \
+  --learning_rate_decay_type=fixed \
+  --save_interval_secs=60 \
+  --save_summaries_secs=60 \
+  --log_every_n_steps=20 \
+  --optimizer=rmsprop \
+  --weight_decay=0.00004
 
 
-# echo 'Sleep 10s to wait for GPU to cool down'
-# sleep 10
+echo 'Sleep 10s to wait for GPU to cool down'
+sleep 10
 
 # Run evaluation.
 python eval_image_classifier.py \
