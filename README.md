@@ -20,7 +20,14 @@ mkdir -p ~/datasets/lfw && cd ~/datasets/lfw &&
 wget http://vis-www.cs.umass.edu/lfw/lfw.tgz &&
 tar -zxvf lfw.tgz
 ```
+- Install OpenCV, numpy, sklearn, Green Unicorn and Flask
 
+``` shell
+sudo apt-get install python-opencv gunicorn &&
+pip install --user numpy flask sklearn
+```
+
+## Train the model
 - Train the final 2 layers of Inception v3 model
 
 ``` shell
