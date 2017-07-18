@@ -1,13 +1,9 @@
 #!/bin/bash
 #
 # This script performs the following operations:
-# 1. Downloads the Flowers dataset
-# 2. Fine-tunes an InceptionV3 model on the Flowers training set.
-# 3. Evaluates the model on the Flowers validation set.
-#
-# Usage:
-# cd slim
-# ./slim/scripts/finetune_inceptionv3_on_flowers.sh
+# 1. Downloads the LFW dataset
+# 2. Fine-tunes an InceptionV3 model on the LFW training set.
+# 3. Evaluates the model on the LFW validation set.
 set -e
 
 # Where the pre-trained InceptionV3 checkpoint is saved to.
