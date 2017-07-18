@@ -2,6 +2,9 @@
 
 ## Prerequisites
 
+- Install [GPU version of TensorFlow](
+https://www.tensorflow.org/install/install_linux)
+
 - Clone this and TensorFlow repository
 
 ``` shell
